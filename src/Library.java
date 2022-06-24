@@ -1,3 +1,5 @@
+import com.sun.org.apache.bcel.internal.generic.SWITCH;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,6 +16,31 @@ public class Library {
         comicBooks.add(new ComicBook("The Batman", Arrays.asList("Batman", "Catwoman", "The Penguin", "Jim Gordon", "Alfred Pennyworth")));
 
         printTheAvailableComicBooks();
+
+        switch(currentState){
+            case SELECT_ACTIONS:
+                System.out.println("Select actions");
+                break;
+            case SHOW_AVAILABLE_COMIC_BOOKS:
+                System.out.println("SHOW_AVAILABLE_COMIC_BOOKS");
+                break;
+            case SHOW_COMIC_BOOK_CHARACTERS:
+                System.out.println("SHOW_COMIC_BOOK_CHARACTERS");
+                break;
+            case ADD_COMIC_BOOK:
+                System.out.println("ADD_COMIC_BOOK");
+                break;
+            case DELETE_COMIC_BOOK:
+                System.out.println("DELETE_COMIC_BOOK");
+                break;
+            default:
+                System.out.println("Sorry, the option you have entered is invalid");
+                break;
+        }
+    }
+
+    private static void handleSelectActions(){
+        System.out.println("Welcome to the comic book library. Please choose from the following options ():");
     }
 
     private static void printTheAvailableComicBooks(){
