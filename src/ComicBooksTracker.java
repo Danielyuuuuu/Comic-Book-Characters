@@ -1,15 +1,13 @@
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Library {
+public class ComicBooksTracker {
     private static ArrayList<ComicBook> comicBooks;
-    private static States currentState;
+    private static States.SystemStates currentState;
 
     public static void main(String[] args){
         comicBooks = new ArrayList<>();
-        currentState = States.SELECT_ACTIONS;
+        currentState = States.SystemStates.SELECT_ACTIONS;
 
         comicBooks.add(new ComicBook("The Flash", Arrays.asList("Jay Garrick", "Barry Allen", "Wally West", "Bart Allen", " Avery Ho")));
         comicBooks.add(new ComicBook("The Adventures of Tintin", Arrays.asList("Tintin", "Snowy", "Captain Haddock", "Professor Calculus")));
@@ -20,6 +18,7 @@ public class Library {
         switch(currentState){
             case SELECT_ACTIONS:
                 System.out.println("Select actions");
+                handleSelectActions();
                 break;
             case SHOW_AVAILABLE_COMIC_BOOKS:
                 System.out.println("SHOW_AVAILABLE_COMIC_BOOKS");
@@ -40,7 +39,7 @@ public class Library {
     }
 
     private static void handleSelectActions(){
-        System.out.println("Welcome to the comic book library. Please choose from the following options ():");
+        System.out.println("Welcome to the comic books tracker. Please choose from the following options ():");
     }
 
     private static void printTheAvailableComicBooks(){
